@@ -1,0 +1,22 @@
+
+Sensible data inspection in file: Namespace(inputfile='tests/test1.pl', outputfile='out1.log', comments=False, patterns=False, Patterns=False)
+---
+Warning! potential AES code detected in:
+L37: my $Private_Key = "AES-90990023530365x33ee1" . ($x+1);
+---
+Warning! variables with potential secret keywords detected in:
+L22: my $my_secret_key='2BAE194BAF09A7A3';
+---
+Warning! pattern matching potential reserved keywords detected in:
+L22: my $my_secret_key='2BAE194BAF09A7A3';
+L39: my $y = $arg{'password'};
+L49: $a->{'private-Key_2'}="345353";
+L50: $a->{'My_Private_key_2'}="secret";
+L52: $a->{def}[4]="password";
+L61: my $code = get_var('SCC_REGCODE');
+L73: print("-Data $c: " . Dumper(fun0(1000, 'password' => 2000))); ### ok ##
+---
+Warning! pattern matching potential personal email address detected in:
+L6: my $b = 012p.axy@beta.com;
+
+Inspection end.
