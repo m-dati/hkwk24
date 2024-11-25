@@ -4,7 +4,7 @@
 
 A subfolder `tests/` contains a perl file `test1.pl`, available for basic verification runs, that can be changed and used to run pattern matching.
 
-Some `out#.log` logs are exampres of tests results.
+Some `out#.log` logs are examples of tests results.
 
 
 - Test examples:
