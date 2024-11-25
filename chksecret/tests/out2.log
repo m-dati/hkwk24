@@ -1,0 +1,14 @@
+
+Sensible data inspection in file: test1.pl
+---
+Warning! potential AES code detected in:
+L37: my $Private_Key = "AES-90990023530365x33ee1" . ($x+1);
+---
+Warning! variables with potential secret keywords detected in:
+L7: my $c; ## my password to remember it is xxx
+L22: my $my_secret_key='2BAE194BAF09A7A3';
+---
+Warning! pattern matching potential personal email address detected in:
+L6: my $b = 012p.axy@beta.com;
+
+Inspection end.
