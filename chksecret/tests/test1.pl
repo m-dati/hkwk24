@@ -3,7 +3,7 @@ use strict;
 use Data::Dumper;
 
 my $a;
-my $b = 012p.axy@beta.com;
+my $b = "_012p.ax.y@beta.abc.com";
 my $c; ## my password to remember it is xxx
 my %h = ( blue => 11, red => 22 );
 
