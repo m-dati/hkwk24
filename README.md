@@ -1,8 +1,8 @@
-# Hack week 2024 - Personal project n.1
+# Hack week 2024 - Project n.1
 
-- Author: Maurizio Dati (SUSE Italy)
+- Author: Maurizio Dati
 - Reference: mdati@suse.com
-- Title: Secrete or personal data exposure detection in code files.
+- Title: secret or reserved or personal data disclosure detection in code files.
 
 
 ## Description
@@ -11,19 +11,19 @@ This project started during the **SUSE Hack week 2024** [prj#1](https://hackweek
 
 Main scope is creation of a tool to detect possible reserved or generally protected data, in source code files, mainly perl-code, basically used or stored in public environments or reporitories.
 
-In other words, notification and possibly prevention of disclosure or leaking of reserved informations in archives exposed on public repository, like github.com. 
+In other words, aim is notification and possibly prevention of disclosure or leaking of reserved informations in archives exposed on public repository, like github.com. 
 
 The above definition of *reserved* and *protected* may vary, depending on the context: sometime secret keys or password are stored in data or configuration files or hardcoded in source codes and depending on the scope of the archive or the level of security, it can be either wanted, permitted or not at all.
 
 Also possible target could be some personal information, like data subject to GDPR.
 
-First target here are program varibles or expressions containing secrets like **registration** keys or **passwords** or **tokens**, that we want to detect and manage either locally or in C.I. pipelines, mainly in perl code modules.
+First target here are program variables or expressions containing secrets like **SCC** keys or **password** or **token**, that we want to detect and manage either locally or in pipelines workflows, mainly in perl code modules.
 
-The list of all patterns to match are stored, into a separate module `secret_patterns.py`, that shall be ready to be loaded at run time, preferably in the same folder of the main script, and activated by a proper flag.
+The list of all patterns to match are stored into a separate module `secret_patterns.py`, that shall be preferably in the same folder of the main script,ready to be loaded at run time, and each pattern is activated by setting a proper flag.
 
 Each pattern is itself an ordered array of: *enabled*, *pattern*, *alert-message*:
-- `enabled`: a boolean 0/1: can be set ot 0 to exclude the related pattern during a file check run.
-- `pattern`: a string contining a regexpr (python) to match, dedicated to a desired sequence to match;
+- `enabled`: a boolean 0/1: can be set to 1 to include the related pattern during a file check run, otherwise 0.
+- `pattern`: a string containing a regexpr (python) to match a desired set of words;
 - `alert-message`: a text sentence, describing the type of detection, printed at runtime when pattern matched.
 
 
@@ -34,7 +34,7 @@ Each pattern is itself an ordered array of: *enabled*, *pattern*, *alert-message
   - remote detection: detect secrets in files, in pipelines, going to be saved on a remote repository, i.e. via `git push` [T.B.D];
 
 - Reporting:
-  - report the result of detection on stderr and/or log file; 
+  - report the result of detection on stderr and/or a log file; 
   - report the result excluding the secret values [T.B.D];
 
 - Action:
